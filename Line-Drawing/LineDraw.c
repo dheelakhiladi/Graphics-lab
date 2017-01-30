@@ -8,15 +8,31 @@ int main(){
 	x=x0;y=y0;
 	dx=x1-x0;dy=y0-y1;
 	p=((2*dy)-dx);
-	for(x=0;x<x1;x++){
-		if(p<0){
-		p=(p+(2*dy));
-		}
-		else{
-			p=p+((2*dy)-(2*dx));
-			y=y+1;
-		}
+	if(dx>dy){
+		for(x=0;x<x1;x++){
+			if(p<0){
+			p=(p+(2*dy));
+			}
+			else{
+				p=p+((2*dy)-(2*dx));
+				y=y+1;
+			}
 		putpixel(x,y, WHITE );
+		}
 	}
+	else{
+		for(y;y<y1;y++){
+			if(p < 0){
+				p = p + 2 * (dx);
+				}
+			else{
+				x=x+1;
+				p = p + 2 * (dx - dy);
+			}
+			putpixel(x,y,WHITE);
+		}
+	}
+
+	
 return 0;
 }
